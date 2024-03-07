@@ -60,31 +60,37 @@
 
         
         form.addEventListener('submit', function(e) {
-            e.preventDefault();
             let todo = document.getElementById("todo").value ;
+            if (todo == "") {
+                alert("Inputan Todo Belum Diisi");
+            } else {
 
-            const tbody = document.getElementById('content');
-            const tr = document.createElement('tr');
-            const td1 = document.createElement('td');
-            const td2 = document.createElement('td');
-            const buttonDel = document.createElement('button');
+                e.preventDefault();
+                
 
-            const valTd1 = document.createTextNode(todo);
-            const valBut = document.createTextNode('Remove');
-            let clas = document.createAttribute("class");
-            clas.value = "w-100 btn btn-lg btn-danger";
-            let klik = document.createAttribute("class");
-            klik.value = "remove";
+                const tbody = document.getElementById('content');
+                const tr = document.createElement('tr');
+                const td1 = document.createElement('td');
+                const td2 = document.createElement('td');
+                const buttonDel = document.createElement('button');
 
-            td1.appendChild(valTd1);
-            buttonDel.setAttributeNode(clas);
-            tr.setAttributeNode(klik);
-            buttonDel.appendChild(valBut);
-            td2.appendChild(buttonDel);
+                const valTd1 = document.createTextNode(todo);
+                const valBut = document.createTextNode('Remove');
+                let clas = document.createAttribute("class");
+                clas.value = "w-100 btn btn-lg btn-danger";
+                let klik = document.createAttribute("class");
+                klik.value = "remove";
 
-            tbody.appendChild(tr);
-            tr.appendChild(td1);
-            tr.appendChild(td2);
+                td1.appendChild(valTd1);
+                buttonDel.setAttributeNode(clas);
+                tr.setAttributeNode(klik);
+                buttonDel.appendChild(valBut);
+                td2.appendChild(buttonDel);
+
+                tbody.appendChild(tr);
+                tr.appendChild(td1);
+                tr.appendChild(td2);
+            }
 
         });
 
